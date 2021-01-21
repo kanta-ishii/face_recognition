@@ -1,0 +1,53 @@
+<Screen>:
+    BoxLayout:
+        size: root.size
+        padding: 10
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: 0.1
+            Label:
+                text: 'Total number : -----------'
+            Label:
+                text: 'Total fee : -----------'
+
+        BoxLayout:
+            size_hint_y: 0.8
+            padding: 10
+            Image:
+                size_hint_x: 0.6
+                texture:
+
+            ScrollView:
+                size_hint_x: 0.4
+
+                GridLayout:
+                    size_hint_y: None
+                    height: self.minimum_height
+                    id: widget_list
+                    cols: 1
+                    rows: 20
+                    orientation: 'vertical'
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 0.2
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+        AnchorLayout:
+            anchor_x: 'right'
+            size_hint_y: 0.1
+            BoxLayout:
+                size_hint: (None, None)
+                size: (300, 40)
+                BoxLayout:
+                    padding: 5
+                    Button:
+                        text: 'Add'
+                        on_press: root.add()
+                BoxLayout:
+                    padding: 5
+                    Button:
+                        text: 'Remove'
+                        on_press: root.remove()
