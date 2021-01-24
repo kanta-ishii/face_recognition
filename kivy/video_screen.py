@@ -6,19 +6,19 @@ from kivy.graphics.texture import Texture
 from kivy.uix.image import Image
 from kivy.clock import Clock
 
+from PIL import Image
 import cv2
 
-class MainScreen(Widget):
 
-    image_texture = ObjectProperty(None)
-    image_capture = ObjectProperty(None)
+class ImageWidget(Widget):
+
 
     def __init__(self, **kwargs):
-        super(MainScreen, self).__init__(**kwargs)
+        super(ImageWidget, self).__init__(**kwargs)
         self.image_capture = cv2.VideoCapture(0)
         Clock.schedule_interval(self.update, 1.0 / 30)
 
-    def analysis_screen(self, dt):
+    def update(self, dt):
         ret, frame = self.image_capture.read()
         if ret:
             buf1 = cv2.flip(frame, 0)
@@ -36,3 +36,7 @@ class ImageApp(App):
 
     def build(self):
         return ImageWidget()
+
+if __name__ == '__main__':
+    app = ImageApp()
+    app.run()

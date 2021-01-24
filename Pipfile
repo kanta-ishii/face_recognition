@@ -9,6 +9,7 @@ pygame = "*"
 opencv-python = "*"
 Cython = "*"
 Kivy = "*"
+pillow = "*"
 
 [dev-packages]
 
@@ -16,4 +17,4 @@ Kivy = "*"
 python_version = "3.9"
 
 [scripts]
-main = "python main.py"
+go = "python main.py"
